@@ -1,4 +1,4 @@
-# TailAdmin React - Free React Tailwind Admin Dashboard Template
+![Copie de STAGE PRESENTATION](https://github.com/user-attachments/assets/b7f8ebaf-61ca-4636-9e43-b78706f96e0c)# TailAdmin React - Free React Tailwind Admin Dashboard Template
 
 TailAdmin is a free and open-source admin dashboard template built on **React and Tailwind CSS**, providing developers with everything they need to create a comprehensive, data-driven back-end, 
 dashboard, or admin panel solution for upcoming web projects.
@@ -25,15 +25,14 @@ With TailAdmin, you get access to all the necessary dashboard UI components, ele
 
 ___
 
-#### [TailAdmin React FREE](https://free-react-demo.tailadmin.com/)
-- 1 Unique Dashboard
-- 30+ Dashboard UI Components
-- 50+ Total UI Elements 
-- 10+ HTML Files
-- TypeScript Support
-- Basic UI Kit Elements and Files
-- Figma Design Source - Free Sample
-___
+#### [TailAdmin React in Action]
+
+This template was used to build the front-end for a RabbitMQ microservice, integrating React with a microservices architecture powered by Spring Boot, Node.js, RabbitMQ, and WebSockets. Below is an architectural overview of the system:
+
+![Copie de STAGE PRESENTATION](https://github.com/user-attachments/assets/853a2bf7-775e-439d-906c-1ad698a1bf19)
+![exchanges-topic-fanout-direct](https://github.com/user-attachments/assets/53b9f9c0-b7db-4669-8a57-6495bd764c7b)
+
+
 
 ### [⬇️ Download Now](https://tailadmin.com/download)
 
