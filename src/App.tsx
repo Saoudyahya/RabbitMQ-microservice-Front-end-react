@@ -1,20 +1,27 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
-import Calendar from './pages/Calendar';
-import Chart from './pages/Chart';
+import ProductTables from './pages/Product-Table';
+
 import ECommerce from './pages/Dashboard/ECommerce';
 import FormElements from './pages/Form/FormElements';
 import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
-import Settings from './pages/Settings';
+
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
+import SupplierTables from './pages/Supplier-Table';
+import OrderTables from './pages/Order-table';
+import OperationTables from './pages/OpertionTable';
+import ClientTables from './pages/Client-Table';
+import RewardTables from './pages/Reward-Table';
+import TransactionTables from './pages/Transaction-table';
+import { isAdmin, isManager } from './components/jwt/jwt';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -28,6 +35,10 @@ function App() {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
+  const isAuthorized = () => {
+    return isAdmin() || isManager();
+  };
+
   return loading ? (
     <Loader />
   ) : (
@@ -36,110 +47,193 @@ function App() {
         <Route
           index
           element={
-            <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <ECommerce />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="eCommerce Dashboard" />
+                <ECommerce />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
-        <Route
-          path="/calendar"
-          element={
-            <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Calendar />
-            </>
-          }
-        />
+      
         <Route
           path="/profile"
           element={
-            <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Profile />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Profile" />
+                <Profile />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
           path="/forms/form-elements"
           element={
-            <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormElements />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Form Elements" />
+                <FormElements />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
           path="/forms/form-layout"
           element={
-            <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormLayout />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Form Layout" />
+                <FormLayout />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
           path="/tables"
           element={
-            <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Tables />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Tables" />
+                <Tables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
-          path="/settings"
+          path="/tables/Product"
           element={
-            <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Settings />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Product Actions" />
+                <ProductTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
-          path="/chart"
+          path="/tables/Supplier"
           element={
-            <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Chart />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Supplier Actions" />
+                <SupplierTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
+          }
+        />
+        <Route
+          path="/tables/Order"
+          element={
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Order Actions" />
+                <OrderTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
+          }
+        />
+        <Route
+          path="/tables/Operations"
+          element={
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Operations Actions" />
+                <OperationTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
+          }
+        />
+        <Route
+          path="/tables/Clients"
+          element={
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Clients Actions" />
+                <ClientTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
+          }
+        />
+        <Route
+          path="/tables/Rewards"
+          element={
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Rewards Actions" />
+                <RewardTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
+          }
+        />
+        <Route
+          path="/tables/Transactions"
+          element={
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Transactions Actions" />
+                <TransactionTables />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
           path="/ui/alerts"
           element={
-            <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Alerts />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Alerts" />
+                <Alerts />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
           path="/ui/buttons"
           element={
-            <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Buttons />
-            </>
+            isAuthorized() ? (
+              <>
+                <PageTitle title="Buttons" />
+                <Buttons />
+              </>
+            ) : (
+              <Navigate to="/auth/signin" replace />
+            )
           }
         />
         <Route
           path="/auth/signin"
-          element={
-            <>
-              <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <SignIn />
-            </>
-          }
+          element={<SignIn />}
         />
         <Route
           path="/auth/signup"
-          element={
-            <>
-              <PageTitle title="Signup | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <SignUp />
-            </>
-          }
+          element={<SignUp />}
         />
       </Routes>
     </>
