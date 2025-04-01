@@ -1,4 +1,3 @@
-![Copie de STAGE PRESENTATION](https://github.com/user-attachments/assets/0aec3c57-edc3-4e57-83ff-d8c42074c9ed)
 
 TailAdmin is a free and open-source admin dashboard template built on **React and Tailwind CSS**, providing developers with everything they need to create a comprehensive, data-driven back-end, 
 dashboard, or admin panel solution for upcoming web projects.
@@ -31,6 +30,7 @@ This template was used to build the front-end for a RabbitMQ microservice, integ
 
 ![Copie de STAGE PRESENTATION](https://github.com/user-attachments/assets/853a2bf7-775e-439d-906c-1ad698a1bf19)
 ![exchanges-topic-fanout-direct](https://github.com/user-attachments/assets/53b9f9c0-b7db-4669-8a57-6495bd764c7b)
+![Copie de STAGE PRESENTATION (1)](https://github.com/user-attachments/assets/576c332a-3329-43a7-a6fc-69afe6b5ab7b)
 
 
 
